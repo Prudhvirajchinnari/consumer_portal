@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(77, 224, 230);
+    background: linear-gradient(to right, #c1f0ae, #97f5dd);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,31 +7,28 @@ body {
 
 .navBar {
     display: flex;
-    flex-direction: row;
-    background-color: rgba(0, 0, 0, 0.603);
-    align-items: center;
-    border-radius: 15px;
-    padding: 10px 20px;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
 }
 
 .navBar ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    padding: 0;
 }
 
 .navBar ul li {
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 .navBar ul li a {
     text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     padding: 8px 12px;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .navBar ul li a:hover {
@@ -39,33 +36,78 @@ body {
 }
 
 section {
-    padding: 20px;
-    margin-top: 20px;
-    padding-bottom: 0px;
+    padding: 30px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-section h2 {
+#utilization {
+    background-color: #e0f7fa;
+}
+
+#complaints {
+    background-color: #ecc6d9;
+}
+
+#feedback {
+    background-color: #e1bee7;
+}
+
+section h2, section h1 {
     margin-top: 0;
-    text-align: center;
     padding-bottom: 20px;
 }
 
+.link-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.h3, .h1 {
+    margin: 20px 0;
+}
+
+.h3 a, .h1 a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    transition: background-color 1s, color 0.3s;
+}
+
+.h3 a:hover, .h1 a:hover {
+    background-color: #333;
+    color: white;
+}
+
 form {
-    margin-top: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
 }
 
 form label {
     display: block;
-    margin: 10px 0 3px;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .radio-group {
     display: flex;
     flex-direction: column;
-}
-
-.radio-group input[type="radio"] {
-    margin-right: 5px;
 }
 
 .radio-group label {
@@ -74,60 +116,37 @@ form label {
     margin-bottom: 5px;
 }
 
-form textarea {
-    width: 100%;
-    max-width: 500px;
-    margin-top: 10px;
+.radio-group input[type="radio"] {
+    margin-right: 10px;
 }
 
-form button {
-    display: inline-block;
+.clear-btn {
     margin-top: 10px;
-    padding: 10px 20px;
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.clear-btn:hover {
+    background-color: #d32f2f;
+}
+
+form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-form button:hover {
+form button[type="submit"]:hover {
     background-color: #45a049;
-}
-
-.h3 {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.h3 a {
-    text-decoration: none;
-    color: #333;
-    padding: 10px 20px;
-    border: 2px solid #333;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 2s;
-}
-
-.h3 a:hover {
-    background-color: #333;
-    color: white
-}
-
-.h1 {
-    margin: 20px 0;
-}
-
-.h1 a {
-    text-decoration: none;
-    color: #810707;
-    padding: 10px 20px;
-    border: 2px solid #333;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 2s;
-}
-
-.h1 a:hover {
-    background-color: #333;
-    color: white
 }

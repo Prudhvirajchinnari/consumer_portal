@@ -1,12 +1,13 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
+    background: linear-gradient(to right, #aed8f0, #979ce5);
 }
 
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.623);
     color: white;
     padding: 10px;
     border-radius: 5px;
