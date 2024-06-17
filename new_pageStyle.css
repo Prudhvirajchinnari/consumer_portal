@@ -7,7 +7,7 @@ body {
 
 .navBar {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     background-color: #333;
     padding: 10px 0;
     border-radius: 10px;
