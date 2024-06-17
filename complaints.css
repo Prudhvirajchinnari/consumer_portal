@@ -1,0 +1,93 @@
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, form, textarea, label, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    resize: vertical;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+textarea:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+
+button {
+    display: inline-block;
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5848c2;
+}
+
+button:active {
+    background-color: #4839a3;
+}
+
+/* @media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    textarea {
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 16px;
+    }
+} */
