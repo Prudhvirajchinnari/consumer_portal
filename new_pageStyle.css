@@ -150,3 +150,11 @@ form button[type="submit"] {
 form button[type="submit"]:hover {
     background-color: #45a049;
 }
+
+.form-group label:hover{
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"]:hover{
+    cursor: pointer;
+}
