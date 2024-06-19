@@ -11,11 +11,24 @@
 </head>
 <body>
     <div class="container">
-        <form id="form">
-            <label for="complaints">Complaints:</label><br>
-            <textarea id="complaints" rows="20" cols="150" placeholder="Your complaints..."></textarea><br>
-            <button type="submit">Submit</button>
+        <form id="complaintForm">
+            <div class="form-container">
+                <div class="label-container">
+                    <label for="complaints">Complaints:</label>
+                    <textarea id="complaints" rows="20" cols="150" placeholder="Your complaints..."></textarea>
+                    <button type="submit">Submit</button>
+                </div>
+                <div class="response-container">
+                    <label for="drop">Response:</label>
+                    <select id="drop">
+                        <option value="">Select Complaint ID</option>
+                        <!-- Options will be populated here -->
+                    </select>
+                    <!-- <div id="response" class="response-box" placeholder="Your responses..."></div> -->
+                    <textarea id="response" class="response-box" rows="20" cols="150" placeholder="Your responses..."></textarea>
+                </div>
+            </div>
         </form>
-    </div>
+    </div>    
 </body>
-</html> 
+</html>

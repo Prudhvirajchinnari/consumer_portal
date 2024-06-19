@@ -4,7 +4,6 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol, form, textarea, label, input, button {
     box-sizing: border-box;
 }
 
-
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
@@ -18,7 +17,6 @@ body {
     margin: 0;
 }
 
-
 .container {
     background: #fff;
     padding: 30px;
@@ -28,6 +26,16 @@ body {
     width: 100%;
 }
 
+.label-container, .response-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
 
 label {
     display: block;
@@ -37,7 +45,6 @@ label {
     color: #555;
     cursor: auto;
 }
-
 
 textarea {
     width: 100%;
@@ -50,13 +57,11 @@ textarea {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
 textarea:focus {
     border-color: #6c63ff;
     outline: none;
     box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
 }
-
 
 button {
     display: inline-block;
@@ -78,16 +83,21 @@ button:active {
     background-color: #4839a3;
 }
 
-/* @media (max-width: 600px) {
-    .container {
-        padding: 20px;
-    }
+textarea, select {
+    width: 100%;
+}
 
-    textarea {
-        font-size: 14px;
-    }
+select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    label {
-        font-size: 16px;
-    }
-} */
+select:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
