@@ -158,7 +158,3 @@ form button[type="submit"]:hover {
 .form-group label:hover{
     cursor: auto;
 }
-
-.radio-group input[type="radio"]:hover{
-    cursor: auto;
-}

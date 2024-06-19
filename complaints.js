@@ -19,7 +19,7 @@ $(document).ready(function() {
                 contentType: 'application/json',
                 data: JSON.stringify(complaintData),
                 success: function(response) {
-                    alert('Complaint submitted successfully: ' + JSON.stringify(response));
+                    alert('Complaint submitted successfully');
                     $('#complaints').val(''); 
                 },
                 error: function(error) {
@@ -30,3 +30,4 @@ $(document).ready(function() {
         }
     });
 });
+// alert('Complaint submitted successfully: ' + JSON.stringify(response));

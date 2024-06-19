@@ -18,13 +18,8 @@ $(document).ready(function() {
             const aggregatedData = aggregateDataByMeterNumberAndStatus(filteredData);
             console.log("Aggregated Data:", aggregatedData); 
 
-            
             generateBarChart(aggregatedData);
 
-            
-            generatePieChart(aggregatedData);
-
-            
             const monthlyData = aggregateDataByMonth(filteredData);
             generateLineChart(monthlyData);
         },
@@ -71,42 +66,22 @@ function aggregateDataByMeterNumberAndStatus(data) {
 
 function aggregateDataByMonth(data) {
     const monthlyData = {
-        active: {
-            'jan': 0,
-            'feb': 0,
-            'mar': 0,
-            'apr': 0,
-            'may': 0,
-            'jun': 0,
-            'jul': 0,
-            'aug': 0,
-            'sep': 0,
-            'oct': 0,
-            'nov': 0,
-            'dec': 0
-        },
-        inactive: {
-            'jan': 0,
-            'feb': 0,
-            'mar': 0,
-            'apr': 0,
-            'may': 0,
-            'jun': 0,
-            'jul': 0,
-            'aug': 0,
-            'sep': 0,
-            'oct': 0,
-            'nov': 0,
-            'dec': 0
-        }
+        'jan': 0,
+        'feb': 0,
+        'mar': 0,
+        'apr': 0,
+        'may': 0,
+        'jun': 0,
+        'jul': 0,
+        'aug': 0,
+        'sep': 0,
+        'oct': 0,
+        'nov': 0,
+        'dec': 0
     };
 
     data.forEach(function(item) {
-        if (item.status === 'active') {
-            monthlyData.active[item.month] += parseFloat(item.consumption);
-        } else {
-            monthlyData.inactive[item.month] += parseFloat(item.consumption);
-        }
+        monthlyData[item.month] += parseFloat(item.consumption);
     });
 
     return monthlyData;
@@ -138,38 +113,12 @@ function generateBarChart(data) {
     chart.render();
 }
 
-function generatePieChart(data) {
-    const chartData = data.map(function(item) {
-        return item.totalConsumption;
-    });
-
-    const labels = data.map(function(item) {
-        return item.meter_number + ' (' + item.status + ')';
-    });
-
-    const options = {
-        chart: {
-            type: 'pie',
-            height: 350
-        },
-        series: chartData,
-        labels: labels
-    };
-
-    const chart = new ApexCharts(document.querySelector("#pieChart"), options);
-    chart.render();
-}
-
 function generateLineChart(data) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const monthKeys = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
-    const activeData = monthKeys.map(function(month) {
-        return data.active[month] || 0;
-    });
-
-    const inactiveData = monthKeys.map(function(month) {
-        return data.inactive[month] || 0;
+    const monthlyConsumption = monthKeys.map(function(month) {
+        return data[month] || 0;
     });
 
     const options = {
@@ -179,12 +128,8 @@ function generateLineChart(data) {
         },
         series: [
             {
-                name: 'Active Consumption',
-                data: activeData
-            },
-            {
-                name: 'Inactive Consumption',
-                data: inactiveData
+                name: 'Monthly Consumption',
+                data: monthlyConsumption
             }
         ],
         xaxis: {

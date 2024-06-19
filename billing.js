@@ -11,18 +11,19 @@ $(document).ready(function() {
         type: 'GET',
         dataType: 'json',
         success: function(data) {
-            const aggregatedData = aggregateDataByMeterNumber(data);
+            const monthlyData = aggregateDataByMonth(data, meterId);
 
             const tableBody = $('#billingTable tbody');
             tableBody.empty();  
 
-            const filteredData = aggregatedData.filter(item => item.meter_number === meterId);
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const monthKeys = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
-            filteredData.forEach(function(item) {
+            monthlyData.forEach(function(item) {
                 const row = $('<tr>');
 
-                $('<td>').text(item.meter_number).appendTo(row);
-                $('<td>').text(item.totalBill).appendTo(row);
+                $('<td>').text(months[monthKeys.indexOf(item.month)]).appendTo(row);
+                $('<td>').text(item.bill).appendTo(row);
 
                 tableBody.append(row);
             });
@@ -33,19 +34,20 @@ $(document).ready(function() {
     });
 });
 
-function aggregateDataByMeterNumber(data) {
-    const aggregatedData = {};
+function aggregateDataByMonth(data, meterId) {
+    const monthlyData = {};
 
     data.forEach(function(item) {
-        if (aggregatedData[item.meter_number]) {
-            aggregatedData[item.meter_number].totalBill += parseFloat(item.bill);
-        } else {
-            aggregatedData[item.meter_number] = {
-                meter_number: item.meter_number,
-                totalBill: parseFloat(item.bill)
-            };
+        if (item.meter_number === meterId) {
+            if (!monthlyData[item.month]) {
+                monthlyData[item.month] = {
+                    month: item.month,
+                    bill: 0
+                };
+            }
+            monthlyData[item.month].bill += parseFloat(item.bill);
         }
     });
 
-    return Object.values(aggregatedData);
+    return Object.values(monthlyData);
 }
