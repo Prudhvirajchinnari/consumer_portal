@@ -27,6 +27,33 @@ $(document).ready(function() {
             console.error("Error fetching billing data:", error);
         }
     });
+
+    $.ajax({
+        url: 'http://localhost:8080/billing',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            const monthlyData = aggregateDataByMonth1(data, meterId);
+
+            const tableBody = $('#billingTable tbody');
+            tableBody.empty();  
+
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const monthKeys = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
+            monthlyData.forEach(function(item) {
+                const row = $('<tr>');
+
+                $('<td>').text(months[monthKeys.indexOf(item.month)]).appendTo(row);
+                $('<td>').text(item.consumption).appendTo(row);
+
+                tableBody.append(row);
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error("Error fetching billing data:", error);
+        }
+    });
 });
 
 function filterDataByMeterId(data, meterId) {
@@ -149,3 +176,22 @@ function generateLineChart(data) {
     const chart = new ApexCharts(document.querySelector("#lineChart"), options);
     chart.render();
 }
+
+function aggregateDataByMonth1(data, meterId) {
+    const monthlyData = {};
+
+    data.forEach(function(item) {
+        if (item.meter_number === meterId) {
+            if (!monthlyData[item.month]) {
+                monthlyData[item.month] = {
+                    month: item.month,
+                    consumption: ""
+                };
+            }
+            monthlyData[item.month].consumption += item.consumption;
+        }
+    });
+
+    return Object.values(monthlyData);
+}
+

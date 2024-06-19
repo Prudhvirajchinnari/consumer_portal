@@ -19,7 +19,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             success: function(response) {
                 if (response && response.length > 0) {
-                    alert("We already have your feedback for your meter");
+                    alert("We already have your feedback for this meter");
                 } else {
                     $.ajax({
                         type: 'POST',
