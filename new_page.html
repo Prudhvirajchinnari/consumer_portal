@@ -13,18 +13,19 @@
             <li><a href="#feedback">Feedback</a></li>
         </ul>
     </nav>
-
+    <h1 id="usernameDisplay"></h3>
     <section id="utilization">
         <h2>Utilization</h2>
         <div class="link-container">
             <h3 class="h3"><a href="billing.html">Billing</a></h3>
             <h3 class="h3"><a href="analysis.html">Analysis</a></h3>
+            <h1 class="h1"><a href="complaints.html">Your Complaints</a></h1>
         </div>
     </section>
 
-    <section id="complaints">
+    <!-- <section id="utilization">
         <h1 class="h1"><a href="complaints.html">Your Complaints</a></h1>
-    </section>
+    </section> -->
     
     <section id="feedback">
         <h1>Feedback</h1>
@@ -92,6 +93,10 @@
                 var groupName = $(this).data('group');
                 $('input[name="' + groupName + '"]').prop('checked', false);
             });
+            const username = localStorage.getItem('username');
+            if (username) {
+                $('#usernameDisplay').text(`Welcome ${username}`);
+            }
         });
     </script>
 </body>

@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background: linear-gradient(to right, #aed8f0, #979ce5);
+    background-color: white;
 }
 
 h2 {
@@ -30,6 +30,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
+    border: 2px solid black;
 }
 
 h1 {

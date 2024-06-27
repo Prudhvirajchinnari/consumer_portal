@@ -1,4 +1,4 @@
-body {
+/* body {
     background: linear-gradient(to right, #c1f0ae, #97f5dd);
     font-family: Arial, sans-serif;
     margin: 0;
@@ -157,4 +157,159 @@ form button[type="submit"]:hover {
 
 .form-group label:hover{
     cursor: auto;
+} */
+
+/* new_pageStyle.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    /* background-color: #f0f0f0; */
+    background: linear-gradient(to bottom, #eff15b, #f57a65);
+    color: #202020;
+    margin: 0;
+    padding: 0;
+}
+
+nav.navBar {
+    background-color: #343a40ad;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 0%;
+}
+
+nav.navBar ul {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav.navBar ul li {
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+.navBar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navBar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 80%;
+    background-color: #ffffff65;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #f57337;
+}
+
+.link-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.link-container h3 a {
+    text-decoration: none;
+    color: rgb(81, 173, 235);
+    font-size: 23px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background-color: #746b6b3b;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.link-container h3 a:hover {
+    background-color: #3531313b;
+}
+
+#feedbackForm .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#feedbackForm label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+#feedbackForm .radio-group {
+    padding-left: 1rem;
+}
+
+#feedbackForm .radio-group label {
+    display: block;
+    margin-bottom: .5rem;
+}
+
+#feedbackForm .clear-btn {
+    background-color: #ffc107;
+    color: #fff;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: .5rem;
+    transition: background-color 0.3s;
+}
+
+#feedbackForm .clear-btn:hover {
+    background-color: #e0a800;
+}
+
+#feedbackForm button[type="submit"] {
+    background-color: #3b92f0;
+    color: #fff;
+    border: none;
+    padding: .75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1rem;
+    transition: background-color 1s;
+}
+
+#feedbackForm button[type="submit"]:hover {
+    background-color: #037cfd;
+}
+
+#utilization .h1 a{
+    text-decoration: none;
+    color: #58abe2;
+    background-color: #746b6b3b;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: background-color 0.3s color 0.3s;
+}
+
+#utilization .h1 a:hover{
+    background-color: #3531313b;
+}
+
+#utilization h2{
+    display: flex;
+    justify-content: left;
+    padding-left: 40%;
+    padding-top: 0%;
+}
+
+#usernameDisplay{
+    color: #2b2a29b4;
+    display: flex;
+    margin-left: 37%;
 }

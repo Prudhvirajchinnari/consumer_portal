@@ -11,7 +11,10 @@ $(document).ready(function() {
             const selectedValue = $(`input[name="${groupName}"]:checked`).val();
             feed[groupName] = selectedValue ? selectedValue : null;
         });
+
         feed['meterId'] = meterId;
+
+        let unansweredCount = 0;
 
         $.ajax({
             type: 'GET',
@@ -21,6 +24,16 @@ $(document).ready(function() {
                 if (response && response.length > 0) {
                     alert("We already have your feedback for this meter");
                 } else {
+                    for (const key in feed) {
+                        if (feed[key] === null) {
+                            unansweredCount++;
+                        }
+                    }
+            
+                    if (unansweredCount > 0) {
+                        alert("Please answer all the questions before submitting");
+                        return;
+                    }
                     $.ajax({
                         type: 'POST',
                         url: 'http://localhost:8080/consumers/feedback',

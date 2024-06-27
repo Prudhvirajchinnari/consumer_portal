@@ -45,7 +45,7 @@ $(document).ready(function() {
                 const row = $('<tr>');
 
                 $('<td>').text(months[monthKeys.indexOf(item.month)]).appendTo(row);
-                $('<td>').text(item.consumption).appendTo(row);
+                $('<td>').text(`${item.consumption}kwh`).appendTo(row);
 
                 tableBody.append(row);
             });
@@ -185,10 +185,10 @@ function aggregateDataByMonth1(data, meterId) {
             if (!monthlyData[item.month]) {
                 monthlyData[item.month] = {
                     month: item.month,
-                    consumption: ""
+                    consumption: 0
                 };
             }
-            monthlyData[item.month].consumption += item.consumption;
+            monthlyData[item.month].consumption += parseFloat(item.consumption);
         }
     });
 

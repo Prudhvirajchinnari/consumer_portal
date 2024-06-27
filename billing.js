@@ -6,6 +6,8 @@ $(document).ready(function() {
         return;
     }
 
+    $('h1').text(`Billing Data for Meter Id: ${meterId}`);
+
     $.ajax({
         url: 'http://localhost:8080/billing',
         type: 'GET',
@@ -23,6 +25,7 @@ $(document).ready(function() {
                 const row = $('<tr>');
 
                 $('<td>').text(months[monthKeys.indexOf(item.month)]).appendTo(row);
+                $('<td>').text(`${item.consumption}kwh`).appendTo(row);
                 $('<td>').text(item.bill).appendTo(row);
 
                 tableBody.append(row);
@@ -42,9 +45,11 @@ function aggregateDataByMonth(data, meterId) {
             if (!monthlyData[item.month]) {
                 monthlyData[item.month] = {
                     month: item.month,
+                    consumption: 0,
                     bill: 0
                 };
             }
+            monthlyData[item.month].consumption += parseFloat(item.consumption);
             monthlyData[item.month].bill += parseFloat(item.bill);
         }
     });

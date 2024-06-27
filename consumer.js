@@ -32,6 +32,7 @@ $(document).ready(function() {
                 response.password.trim() === user.password.trim() &&
                 response.meterId.trim() === user.meterId.trim()) {
                     localStorage.setItem('meterId', user.meterId);
+                    localStorage.setItem('username', user.username);
                     window.location.href = "new_page.html";  
                 } else {
                     alert("Invalid details");
