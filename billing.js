@@ -21,6 +21,8 @@ $(document).ready(function() {
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             const monthKeys = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
+            const consumedMonths = [];
+
             monthlyData.forEach(function(item) {
                 const row = $('<tr>');
 
@@ -28,7 +30,36 @@ $(document).ready(function() {
                 $('<td>').text(`${item.consumption}kwh`).appendTo(row);
                 $('<td>').text(item.bill).appendTo(row);
 
+                consumedMonths.push(months[monthKeys.indexOf(item.month)]);
+
                 tableBody.append(row);
+            });
+
+            var dropdown = $('#drop');
+            dropdown.empty();
+            dropdown.append('<option value="">Select Month</option>');
+
+            consumedMonths.forEach(function(con) {
+                dropdown.append(`<option value="${con}">${con}</option>`);
+            });
+
+            $('#drop').on('change', function(){
+                checkDropdowns();
+            });
+
+            var dropyear = $('#drop-year');
+            dropyear.empty();
+            dropyear.append('<option value="">Select Year</option>');
+            dropyear.append(`<option value="${2017}">${2017}</option>`);
+            dropyear.append(`<option value="${2018}">${2018}</option>`);
+            dropyear.append(`<option value="${2019}">${2019}</option>`);
+            dropyear.append(`<option value="${2020}">${2020}`).append(`<option value="${2021}">${2021}</option>`);
+            dropyear.append(`<option value="${2022}">${2022}</option>`);
+            dropyear.append(`<option value="${2023}">${2023}</option>`);
+            dropyear.append(`<option value="${2024}">${2024}</option>`);
+
+            $('#drop-year').on('change', function(){
+                checkDropdowns();
             });
         },
         error: function(xhr, status, error) {
@@ -55,4 +86,93 @@ function aggregateDataByMonth(data, meterId) {
     });
 
     return Object.values(monthlyData);
+}
+
+function ISLP(year){
+    if((year % 400 == 0) || (year % 100 != 0) && (year % 4 == 0)){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+function checkDropdowns() {
+    const month = $('#drop').val();
+    const year = $('#drop-year').val();
+
+    if (month && year) {
+        calendar(month, year);
+    }
+}
+
+function calendar(month, year){
+    const days = {
+        "January" : 31,
+        "February" : ISLP(year) ? 29 : 28,
+        "March" : 31,
+        "April" : 30,
+        "May" : 31,
+        "June" : 30,
+        "July" : 31,
+        "August" : 31,
+        "September" : 30,
+        "October" : 31,
+        "November" : 30,
+        "December" : 31
+    };
+
+    $('#calendar').empty();
+
+    let c = 0;
+
+    const calendarBody = $('<div class="calendar-body"></div>');
+    const firstDayOfMonth = new Date(year, Object.keys(days).indexOf(month), 1).getDay(); // Replace 2024 with selected year
+
+    for (let i = 0; i < firstDayOfMonth; i++) {
+        calendarBody.append('<span class="calendar-day empty"></span>');
+        c++;
+    }
+
+    for(let i = 1; i <= days[month]; i++){
+        calendarBody.append(`<span class="calendar-day">${i}</span> `);
+        c += 1;
+        if(c == 7){
+            c = 0;
+            calendarBody.append('<br>');
+        }
+    }
+
+    $('#calendar').append(calendarBody);
+
+    $('.calendar-day').on('click', function(){
+        const selectedDay = $(this).text();
+        if (!$(this).hasClass('empty')) {
+            const monthIndex = ("0" + (Object.keys(days).indexOf(month) + 1)).slice(-2); 
+            const day = ("0" + selectedDay).slice(-2); 
+            const formattedDate = `${year}-${monthIndex}-${day}`;
+            const meterId = localStorage.getItem('meterId'); // Retrieve meterId from local storage
+            console.log(formattedDate);
+            $.ajax({
+                url: `http://localhost:8080/billing/dates/${formattedDate}/${meterId}`,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data){
+                    const dateTableBody = $('#dateTable tbody');
+                    // dateTableBody.empty();
+                    const row = $('<tr>');
+    
+                    $('<td>').text(`${data.date}`).appendTo(row);
+                    $('<td>').text(`${data.consumption}`).appendTo(row);
+                    $('<td>').text(`${data.bill} rs`).appendTo(row);
+    
+                    dateTableBody.append(row);
+                },
+                error: function(error){
+                    alert("data is not available for the selected date");
+                    console.error("Error fetching data for the selected date:", error);
+                }
+            });
+        }
+    });
 }
