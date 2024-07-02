@@ -127,7 +127,8 @@ function calendar(month, year){
     let c = 0;
 
     const calendarBody = $('<div class="calendar-body"></div>');
-    const firstDayOfMonth = new Date(year, Object.keys(days).indexOf(month), 1).getDay(); // Replace 2024 with selected year
+    const firstDayOfMonth = new Date(year, Object.keys(days).indexOf(month), 1).getDay();
+    calendarBody.append('<b>&nbsp;&nbsp; S &nbsp;&nbsp;&nbsp;&nbsp; M  &nbsp;&nbsp;&nbsp;&nbsp; T &nbsp;&nbsp;&nbsp;&nbsp; W &nbsp;&nbsp;&nbsp;&nbsp; T &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; F &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S &nbsp;</b> <br>');
 
     for (let i = 0; i < firstDayOfMonth; i++) {
         calendarBody.append('<span class="calendar-day empty"></span>');
