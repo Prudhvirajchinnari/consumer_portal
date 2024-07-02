@@ -146,7 +146,7 @@ function calendar(month, year){
 
     $('#calendar').append(calendarBody);
 
-    let history = new Set(); // Use a set to keep track of history
+    let history = new Set();
 
     $('.calendar-day').on('click', function(){
         const selectedDay = $(this).text();
@@ -154,7 +154,7 @@ function calendar(month, year){
             const monthIndex = ("0" + (Object.keys(days).indexOf(month) + 1)).slice(-2); 
             const day = ("0" + selectedDay).slice(-2); 
             const formattedDate = `${year}-${monthIndex}-${day}`;
-            const meterId = localStorage.getItem('meterId'); // Retrieve meterId from local storage
+            const meterId = localStorage.getItem('meterId');
             console.log(formattedDate);
             if (!history.has(formattedDate)) {
                 history.add(formattedDate);
