@@ -99,8 +99,8 @@ select {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-    margin-left: 127px;
+    margin-top: 0px;
+    margin-left: 130px;
 }
 
 #date-wise-data {
@@ -111,8 +111,8 @@ select {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-    margin-left: 50px; 
+    margin-top: 0px;
+    margin-left: 49px; 
 }
 
 #date-wise-data h2 {
@@ -120,4 +120,9 @@ select {
     margin-bottom: 20px;
     font-size: 1.5em;
     color: #333;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
 }

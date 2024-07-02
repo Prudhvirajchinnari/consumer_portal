@@ -145,6 +145,8 @@ function calendar(month, year){
 
     $('#calendar').append(calendarBody);
 
+    let history = new Set(); // Use a set to keep track of history
+
     $('.calendar-day').on('click', function(){
         const selectedDay = $(this).text();
         if (!$(this).hasClass('empty')) {
@@ -153,26 +155,33 @@ function calendar(month, year){
             const formattedDate = `${year}-${monthIndex}-${day}`;
             const meterId = localStorage.getItem('meterId'); // Retrieve meterId from local storage
             console.log(formattedDate);
-            $.ajax({
-                url: `http://localhost:8080/billing/dates/${formattedDate}/${meterId}`,
-                type: 'GET',
-                dataType: 'json',
-                success: function(data){
-                    const dateTableBody = $('#dateTable tbody');
-                    // dateTableBody.empty();
-                    const row = $('<tr>');
-    
-                    $('<td>').text(`${data.date}`).appendTo(row);
-                    $('<td>').text(`${data.consumption}`).appendTo(row);
-                    $('<td>').text(`${data.bill} rs`).appendTo(row);
-    
-                    dateTableBody.append(row);
-                },
-                error: function(error){
-                    alert("data is not available for the selected date");
-                    console.error("Error fetching data for the selected date:", error);
-                }
-            });
+            if (!history.has(formattedDate)) {
+                history.add(formattedDate);
+                $.ajax({
+                    url: `http://localhost:8080/billing/dates/${formattedDate}/${meterId}`,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data){
+                        const dateTableBody = $('#dateTable tbody');
+                        const row = $('<tr>');
+
+                        $('<td>').text(`${data.date}`).appendTo(row);
+                        $('<td>').text(`${data.consumption}`).appendTo(row);
+                        $('<td>').text(`${data.bill} rs`).appendTo(row);
+
+                        dateTableBody.append(row);
+                    },
+                    error: function(error){
+                        alert("Data is not available for the selected date");
+                        console.error("Error fetching data for the selected date:", error);
+                    }
+                });
+            }
         }
     });
+    $('#reset').click(function(event){
+        const dateTableBody = $('#dateTable tbody');
+        dateTableBody.empty();
+        history = new Set();
+    })
 }
