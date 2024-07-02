@@ -174,6 +174,7 @@ function calendar(month, year){
                     },
                     error: function(error){
                         alert("Data is not available for the selected date");
+                        history.delete(formattedDate);
                         console.error("Error fetching data for the selected date:", error);
                     }
                 });
