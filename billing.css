@@ -137,9 +137,15 @@ button[type="reset"]{
     border: 3px solid rgb(90, 89, 89);
     cursor: pointer;
     padding: 5px 10px;
-    transition: background-color 0.3s;
+    transition: background-color 0.5s border 0.5s;
 }
 
 button[type="reset"]:hover{
-    background-color: rgb(60, 240, 60);
+    background-color: rgb(90, 245, 90);
+    border: 3px solid rgb(58, 58, 58)
+}
+
+button[type="reset"]:active{
+    background-color: rgb(2, 196, 2);
+    border: 3px solid black;
 }
