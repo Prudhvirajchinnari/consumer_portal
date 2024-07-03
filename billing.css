@@ -5,6 +5,41 @@ body {
     padding: 0;
 }
 
+nav.navBar {
+    background-color: #343a40ad;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 0%;
+}
+
+nav.navBar ul {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 7px;
+}
+
+nav.navBar ul li {
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+.navBar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navBar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
 .container {
     width: 80%;
     margin: auto;
@@ -64,7 +99,6 @@ select {
 }
 
 #calendar {
-    /* text-align: center; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -107,14 +141,14 @@ select {
 
 #date-wise-data {
     display: inline-block;
-    width: 49%;
+    width: 80%;
     margin: auto;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 0px;
-    margin-left: 49px;
+    margin-left: 129px;
 }
 
 #date-wise-data h2 {
@@ -124,12 +158,12 @@ select {
     color: #333;
 }
 
-h2{
+h2 {
     display: flex;
     justify-content: center;
 }
 
-button[type="reset"]{
+button[type="reset"] {
     background-color: rgb(129, 238, 129);
     border-radius: 10px;
     font-size: 15px;
@@ -137,15 +171,34 @@ button[type="reset"]{
     border: 3px solid rgb(90, 89, 89);
     cursor: pointer;
     padding: 5px 10px;
-    transition: background-color 0.5s border 0.5s;
+    transition: background-color 0.5s;
 }
 
-button[type="reset"]:hover{
+button[type="reset"]:hover {
     background-color: rgb(90, 245, 90);
-    border: 3px solid rgb(58, 58, 58)
+    border: 3px solid rgb(58, 58, 58);
 }
 
-button[type="reset"]:active{
+button[type="reset"]:active {
     background-color: rgb(2, 196, 2);
     border: 3px solid black;
+}
+
+#logout {
+    background-color: #f44336; /* Red */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 93%;
+}
+
+#logout:hover {
+    background-color: #d32f2f; /* Darker red */
 }

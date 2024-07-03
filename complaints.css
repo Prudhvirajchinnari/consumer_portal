@@ -1,3 +1,5 @@
+/* Ensure to include other styles from your current complaints.css file as well */
+
 body, h1, h2, h3, h4, h5, h6, p, ul, ol, form, textarea, label, input, button {
     margin: 0;
     padding: 0;
@@ -17,6 +19,43 @@ body {
     margin: 0;
 }
 
+nav.navBar {
+    background-color: #343a40ad;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav.navBar ul {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav.navBar ul li {
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+.navBar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navBar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
 .container {
     background: #fff;
     padding: 30px;
@@ -24,6 +63,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     width: 100%;
+    margin-top: 100px; /* Add margin-top to push the content below the fixed navbar */
 }
 
 .label-container, .response-container {
@@ -102,3 +142,21 @@ select:focus {
     box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
 }
 
+#logout {
+    background-color: #f44336; /* Red */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 93%;
+}
+
+#logout:hover {
+    background-color: #d32f2f; /* Darker red */
+}

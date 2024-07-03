@@ -10,6 +10,15 @@
     <script src="analysis.js" defer></script>
 </head>
 <body>
+    <nav class="navBar">
+        <ul>
+            <li><a href="new_page.html">Main</a></li>
+            <li><a href="billing.html">Billing</a></li>
+            <li><a href="analysis.html">Analysis</a></li>
+            <li><a href="complaints.html">Complaints</a></li>
+            <li><button id="logout">Logout</button></li>
+        </ul>
+    </nav>
     <h2>Consumption Analysis</h2>
     <div id="barChart"></div>
     <div id="lineChart"></div>
@@ -26,5 +35,11 @@
             </tbody>
         </table>
     </div>
+    <script>
+        $('#logout').click(function() {
+                localStorage.removeItem('meterId');
+                window.location.href = 'consumer.html';
+        });
+    </script>
 </body>
 </html>

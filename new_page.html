@@ -11,9 +11,10 @@
         <ul>
             <li><a href="#utilization">Utilization</a></li>
             <li><a href="#feedback">Feedback</a></li>
+            <li><button id="logout">Logout</button></li>
         </ul>
     </nav>
-    <h1 id="usernameDisplay"></h3>
+    <h1 id="usernameDisplay"></h1>
     <section id="utilization">
         <h2>Utilization</h2>
         <div class="link-container">
@@ -22,10 +23,6 @@
             <h1 class="h1"><a href="complaints.html">Your Complaints</a></h1>
         </div>
     </section>
-
-    <!-- <section id="utilization">
-        <h1 class="h1"><a href="complaints.html">Your Complaints</a></h1>
-    </section> -->
     
     <section id="feedback">
         <h1>Feedback</h1>
@@ -93,10 +90,16 @@
                 var groupName = $(this).data('group');
                 $('input[name="' + groupName + '"]').prop('checked', false);
             });
+
             const username = localStorage.getItem('username');
             if (username) {
                 $('#usernameDisplay').text(`Welcome ${username}`);
             }
+
+            $('#logout').click(function() {
+                localStorage.removeItem('meterId');
+                window.location.href = 'consumer.html';
+            });
         });
     </script>
 </body>

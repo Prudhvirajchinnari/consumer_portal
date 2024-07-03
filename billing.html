@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="billing.css">
 </head>
 <body>
+    <nav class="navBar">
+        <ul>
+            <li><a href="new_page.html">Main</a></li>
+            <li><a href="billing.html">Billing</a></li>
+            <li><a href="analysis.html">Analysis</a></li>
+            <li><a href="complaints.html">Complaints</a></li>
+            <li><button id="logout">Logout</button></li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Billing Data</h1>
         <table id="billingTable">
@@ -22,7 +31,7 @@
         </table>
     </div>
     <h2>Date wise data</h2>
-    <div class="calendar-container">
+    <!-- <div class="calendar-container">
         <div class="dropdown-container">
             <label for="drop">Select Month:</label>
             <select id="drop">
@@ -34,14 +43,14 @@
             </select>
         </div>
         <div id="calendar"></div>
-    </div>
+    </div> -->
     <div id="date-wise-data">
         <table id="dateTable">
             <thead>
                 <tr>
                     <th>Date</th>
                     <th>Consumption</th>
-                    <th>Bill</th>
+                    <!-- <th>Bill</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -53,3 +62,9 @@
     <script src="billing.js"></script>
 </body>
 </html>
+
+<!-- in date wise data table, we have the data from all years if we use calendar
+
+but in billingTable we only have the data of current year so if we click
+on any month ("td" element) in billingTable then in the date wise data table
+we only get the current year's data  -->

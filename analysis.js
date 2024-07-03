@@ -137,7 +137,7 @@ function generateBarChart(data) {
     };
 
     const chart = new ApexCharts(document.querySelector("#barChart"), options);
-    chart.render();
+    // chart.render();
 }
 
 function generateLineChart(data) {
