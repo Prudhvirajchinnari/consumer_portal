@@ -63,7 +63,7 @@ nav.navBar ul li {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     width: 100%;
-    margin-top: 100px; /* Add margin-top to push the content below the fixed navbar */
+    margin-top: 100px;
 }
 
 .label-container, .response-container {
@@ -143,7 +143,7 @@ select:focus {
 }
 
 #logout {
-    background-color: #f44336; /* Red */
+    background-color: #f44336; 
     border: none;
     color: white;
     padding: 5px 10px;
@@ -158,5 +158,5 @@ select:focus {
 }
 
 #logout:hover {
-    background-color: #d32f2f; /* Darker red */
+    background-color: #d32f2f;
 }

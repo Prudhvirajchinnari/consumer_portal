@@ -97,7 +97,7 @@ tbody tr:hover {
 }
 
 #logout {
-    background-color: #f44336; /* Red */
+    background-color: #f44336;
     border: none;
     color: white;
     padding: 5px 10px;
@@ -112,5 +112,5 @@ tbody tr:hover {
 }
 
 #logout:hover {
-    background-color: #d32f2f; /* Darker red */
+    background-color: #d32f2f;
 }
