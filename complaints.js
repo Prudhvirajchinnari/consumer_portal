@@ -68,6 +68,7 @@ $(document).ready(function() {
             });
         } else {
             $('#response').text('');
+            $('#storedComplaint').text('');
         }
     });
 
