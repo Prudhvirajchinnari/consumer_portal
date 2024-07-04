@@ -59,6 +59,7 @@ $(document).ready(function() {
                 contentType: 'application/json',
                 success: function(response) {
                     $('#response').text(response.response);
+                    $('#storedComplaint').text(response.complaint);
                 },
                 error: function(error) {
                     console.error('Error fetching the response:', error);
